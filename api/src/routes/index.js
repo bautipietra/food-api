@@ -38,30 +38,50 @@ const getAllRecipes = async () => {
 /* Routes */
 
 router.get('/recipes', async (req, res) => {
-  const { name } = req.query
-  let allRecipes = await getAllRecipes()
+  try {
+    const { name } = req.query
+    const allRecipes = await getAllRecipes()
 
-  if (name) {
-    const recipeName = await allRecipes.filter(recipe => recipe.title.toLowerCase().includes(name.toLowerCase()))
+    if (name) {
+      const recipeName = await allRecipes.filter(recipe => recipe.title.toLowerCase().includes(name.toLowerCase()))
 
-    if (recipeName.length) return res.send(recipeName)
-    return res.status(404).send('No se encontró ninguna receta con ese nombre')
+      if (recipeName.length) return res.send(recipeName)
+      return res.status(404).send({ error: 'No se encontró ninguna receta con ese nombre' })
+    }
+
+    return res.send(allRecipes)
+  } catch (error) {
+    return res.status(400).send({ error: error.message })
   }
-
-  return res.send(allRecipes)
 })
 
 router.get('/diets', async (req, res) => {
-  const allRecipes = await getApiInfo()
-  await allRecipes.results.forEach(recipe => {
-    recipe.diets.forEach(diet => {
-      Diet.findOrCreate({
-        where: { name: diet }
+  try {
+    const allRecipes = await getApiInfo()
+    await allRecipes.results.forEach(recipe => {
+      recipe.diets.forEach(diet => {
+        Diet.findOrCreate({
+          where: { name: diet }
+        })
       })
     })
-  })
-  const allDiets = await Diet.findAll()
-  res.send(allDiets)
+    const allDiets = await Diet.findAll()
+    res.send(allDiets)
+  } catch (error) {
+    return res.status(400).send({ error: error.message })
+  }
+})
+
+router.get('/recipes/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const allRecipes = await getAllRecipes()
+    const recipeId = await allRecipes.find(recipe => Number(recipe.id) === Number(id))
+    if (recipeId) return res.send(recipeId)
+    return res.status(404).send({ error: 'No existe ninguna receta con ese ID' })
+  } catch (error) {
+    return res.status(400).send({ error: error.message })
+  }
 })
 
 module.exports = router;
