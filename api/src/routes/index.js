@@ -42,13 +42,26 @@ router.get('/recipes', async (req, res) => {
   let allRecipes = await getAllRecipes()
 
   if (name) {
-    let recipeName = await allRecipes.filter(recipe => recipe.title.toLowerCase().includes(name.toLowerCase()))
+    const recipeName = await allRecipes.filter(recipe => recipe.title.toLowerCase().includes(name.toLowerCase()))
 
     if (recipeName.length) return res.send(recipeName)
     return res.status(404).send('No se encontró ninguna receta con ese nombre')
   }
 
   return res.send(allRecipes)
+})
+
+router.get('/diets', async (req, res) => {
+  const allRecipes = await getApiInfo()
+  await allRecipes.results.forEach(recipe => {
+    recipe.diets.forEach(diet => {
+      Diet.findOrCreate({
+        where: { name: diet }
+      })
+    })
+  })
+  const allDiets = await Diet.findAll()
+  res.send(allDiets)
 })
 
 module.exports = router;
