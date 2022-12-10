@@ -43,10 +43,10 @@ router.get('/recipes', async (req, res) => {
     const allRecipes = await getAllRecipes()
 
     if (name) {
-      const recipeName = await allRecipes.filter(recipe => recipe.title.toLowerCase().includes(name.toLowerCase()))
+      const recipeIncludeName = allRecipes.filter(recipe => recipe.title.toLowerCase().includes(name.toLowerCase()))
 
-      if (recipeName.length) return res.send(recipeName)
-      return res.status(404).send({ error: 'No se encontró ninguna receta con ese nombre' })
+      if (recipeIncludeName.length) return res.send(recipeIncludeName)
+      throw new Error('No se encontró ninguna receta con ese nombre')
     }
 
     return res.send(allRecipes)
@@ -58,7 +58,7 @@ router.get('/recipes', async (req, res) => {
 router.get('/diets', async (req, res) => {
   try {
     const allRecipes = await getApiInfo()
-    await allRecipes.results.forEach(recipe => {
+    allRecipes.results.forEach(recipe => {
       recipe.diets.forEach(diet => {
         Diet.findOrCreate({
           where: { name: diet }
@@ -76,9 +76,22 @@ router.get('/recipes/:id', async (req, res) => {
   try {
     const { id } = req.params
     const allRecipes = await getAllRecipes()
-    const recipeId = await allRecipes.find(recipe => Number(recipe.id) === Number(id))
+    const recipeId = allRecipes.find(recipe => Number(recipe.id) === Number(id))
     if (recipeId) return res.send(recipeId)
-    return res.status(404).send({ error: 'No existe ninguna receta con ese ID' })
+    throw new Error('No existe ninguna receta con ese ID')
+  } catch (error) {
+    return res.status(400).send({ error: error.message })
+  }
+})
+
+router.post('/recipes', async (req, res) => {
+  try {
+    const recipeAlreadyExist = await Recipe.findOne({ where: { name: req.body.name } })
+    if (recipeAlreadyExist) throw new Error('La receta ingresada ya existe')
+    const createdRecipe = await Recipe.create(req.body)
+    const dietDb = await Diet.findOne({ where: { name: req.body.diet } })
+    createdRecipe.addDiet(dietDb)
+    res.send(createdRecipe)
   } catch (error) {
     return res.status(400).send({ error: error.message })
   }

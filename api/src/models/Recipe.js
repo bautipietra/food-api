@@ -18,6 +18,23 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    diet: {
+      type: DataTypes.ENUM({
+        values: [
+          "gluten free",
+          "dairy free",
+          "lacto ovo vegetarian",
+          "vegan",
+          "paleolithic",
+          "primal",
+          "whole 30",
+          "pescatarian",
+          "ketogenic",
+          "fodmap friendly"
+        ]
+      }),
+      allowNull: false,
+    },
     healthScore: {
       type: DataTypes.STRING
     },
