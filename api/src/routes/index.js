@@ -90,7 +90,7 @@ router.post('/recipes', async (req, res) => {
     if (recipeAlreadyExist) throw new Error('La receta ingresada ya existe')
     const createdRecipe = await Recipe.create(req.body)
     const dietDb = await Diet.findOne({ where: { name: req.body.diet } })
-    createdRecipe.addDiet(dietDb)
+    await createdRecipe.addDiet(dietDb)
     res.send(createdRecipe)
   } catch (error) {
     return res.status(400).send({ error: error.message })
