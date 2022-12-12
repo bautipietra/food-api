@@ -15,26 +15,6 @@
     margin: auto;
     height: 100%;
 
-
-    .logo {
-      text-decoration: none;
-      display: flex;
-      flex-flow: row;
-      align-items: center;
-      z-index: 15;
-
-      svg {
-        fill: var(--primary-color);
-        margin-left: -6px;
-      }
-
-      span {
-        color: var(--primary-color);
-        font-size: var(--font-size-lg);
-        font-weight: bolder;
-      }
-    }
-
     .navWrapper {
       display: flex;
       align-items: center;

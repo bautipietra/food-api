@@ -1,31 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import SeeRecipesButton from '../Button/Button'
+import Button from '../Button/Button'
 import s from './Nav.module.scss'
-import { GiCook } from 'react-icons/gi'
 import SearchBar from '../SearchBar/SearchBar'
 import { motion } from "framer-motion";
+import Logo from '../Logo/Logo'
 
 function Nav() {
   const [menu, setMenu] = useState(false)
 
   useEffect(() => {
-    if (menu) window.onscroll = function () { window.scrollTo(0, 0); };
+    if (menu) window.onscroll = function () { if (window.innerWidth < 800) window.scrollTo(0, 0); };
     else window.onscroll = function () { }
   }, [menu])
 
   return (
     <motion.div className={`${s.container}`}
-      transition={{ delay: 0.2, duration: 0.5 }}
+      transition={{ delay: 0.4, duration: 0.5 }}
       exit={{ opacity: 0 }}
       initial={{ y: -100, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}>
       <nav>
-        <Link to={''} className={s.logo}>
-          <GiCook size={'40px'}></GiCook>
-          <span>Tasty</span>
-        </Link>
+        <Logo color={'var(--primary-color)'}></Logo>
         <div className={`${s.menu} ${menu ? s.open : ''}`} onClick={() => setMenu(!menu)}>
           <span></span>
           <span></span>
@@ -37,7 +34,7 @@ function Nav() {
             <li><Link to={'/favorites'}>Favorites</Link></li>
           </ul>
           <SearchBar></SearchBar>
-          <SeeRecipesButton text={'create'} path={'/create'}></SeeRecipesButton>
+          <Button text={'Create'} path={'/create'}></Button>
         </div>
       </nav>
     </motion.div>

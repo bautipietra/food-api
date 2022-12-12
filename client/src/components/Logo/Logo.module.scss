@@ -1,0 +1,16 @@
+.logo {
+  text-decoration: none;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  z-index: 15;
+
+  svg {
+    margin-left: -6px;
+  }
+
+  span {
+    font-size: var(--font-size-lg);
+    font-weight: bolder;
+  }
+}

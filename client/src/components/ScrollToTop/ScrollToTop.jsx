@@ -19,19 +19,16 @@ function ScrollToTop() {
     window.scrollTo(0, 0)
   }
 
-  return <>
-    {
-      scroll && (
-        <motion.div
-          transition={{ delay: 0.2, duration: 0.5 }}
-          exit={{ opacity: 0 }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}>
-          <BsFillArrowUpCircleFill className={s.scrollToTop} size='50px' onClick={() => scrollToTop()}></BsFillArrowUpCircleFill>
-        </motion.div>)
-    }
-  </>
+  return (
+    <motion.div
+      transition={{ delay: 0.2, duration: 0.5 }}
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}>
+      <BsFillArrowUpCircleFill className={`${s.scrollToTop} ${scroll ? '' : s.hidden}`} size='50px' onClick={() => scrollToTop()}></BsFillArrowUpCircleFill>
+    </motion.div>
+  )
 }
 
 export default ScrollToTop

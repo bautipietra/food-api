@@ -1,0 +1,59 @@
+@use '../../m.scss';
+
+footer {
+  width: 100%;
+  background-color: var(--primary-color);
+  padding: 50px 0;
+
+  .footerContainer {
+    display: flex;
+    max-width: 1000px;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    gap: 50px;
+    text-align: center;
+
+    p {
+      font-size: var(--font-size-sm);
+      color: var(--secondary-color);
+
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      width: 100%;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      gap: 20px;
+
+      ul {
+        text-align: start;
+        display: flex;
+        flex-flow: column;
+        gap: 5px;
+        color: var(--secondary-color);
+
+        h6 {
+          font-size: var(--font-size-base);
+        }
+
+        li {
+          list-style: none;
+
+          a {
+            text-decoration: none;
+            color: var(--secondary-color);
+          }
+        }
+      }
+    }
+  }
+}

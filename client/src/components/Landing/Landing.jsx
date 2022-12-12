@@ -3,7 +3,7 @@ import s from './Landing.module.scss'
 import landing from '../../assets/landing.png'
 import { CountUp } from 'count-up-es-react'
 import { motion } from "framer-motion"
-import SeeRecipesButton from '../Button/Button'
+import Button from '../Button/Button'
 import { RiHeartAddLine } from 'react-icons/ri'
 import { SlEnergy } from 'react-icons/sl'
 import { TfiAlarmClock } from 'react-icons/tfi'
@@ -14,7 +14,12 @@ import energy from '../../assets/energy.svg'
 function Landing() {
   return (
     <div className={s.container}>
-      <div className={s.landing}>
+      <motion.div className={s.landing}
+        transition={{ delay: 0.2, duration: 0.5 }}
+        exit={{ opacity: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}>
         <div className={s.landingWrapper}>
           <motion.div className={s.landingContent}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -28,7 +33,7 @@ function Landing() {
             <p>
               Eating healthy is now easier with tasty, access thousands of recipes with a single click.
             </p>
-            <SeeRecipesButton text={'See recipes'} path={'/recipes'}></SeeRecipesButton>
+            <Button text={'See recipes'} path={'/recipes'}></Button>
             <div className={s.landingCounters}>
               <div>
                 <span>+<CountUp start={0} end={5000} duration={3000} /></span>
@@ -44,14 +49,14 @@ function Landing() {
               </div>
             </div>
           </motion.div>
-          <motion.img src={landing} alt="" className='landing-img'
+          <motion.img src={landing} alt="girl eating healthy" className='landing-img'
             transition={{ delay: 0.2, duration: 0.5 }}
             exit={{ opacity: 0 }}
             initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }} />
         </div>
-      </div>
+      </motion.div>
       <div className={s.cards}>
         <motion.div className={s.card}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -62,7 +67,7 @@ function Landing() {
           <RiHeartAddLine size={'60px'}></RiHeartAddLine>
           <h4>Becomes Healthier</h4>
           <p>Immune will stronger if the body is healthier</p>
-          <img src={immune} alt="" />
+          <img src={immune} alt="doctor" />
         </motion.div>
         <motion.div className={s.card}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -73,7 +78,7 @@ function Landing() {
           <TfiAlarmClock size={'60px'}></TfiAlarmClock>
           <h4>Save time</h4>
           <p>Time will no longer be an excuse to be unhealthy</p>
-          <img src={time} alt="" />
+          <img src={time} alt="clock" />
         </motion.div>
         <motion.div className={s.card}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -84,7 +89,7 @@ function Landing() {
           <SlEnergy size={'60px'}></SlEnergy>
           <h4>Increase energy</h4>
           <p>Having enough energy can help you achieve a goal</p>
-          <img src={energy} alt="" />
+          <img src={energy} alt="achieve a goal" />
         </motion.div>
       </div>
     </div >
