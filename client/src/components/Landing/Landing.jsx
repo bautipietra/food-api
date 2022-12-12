@@ -1,13 +1,19 @@
 import React from 'react'
 import s from './Landing.module.scss'
 import landing from '../../assets/landing.png'
-import { CountUp } from 'count-up-es-react';
-import { motion } from "framer-motion";
-import SeeRecipesButton from '../Button/Button';
+import { CountUp } from 'count-up-es-react'
+import { motion } from "framer-motion"
+import SeeRecipesButton from '../Button/Button'
+import { RiHeartAddLine } from 'react-icons/ri'
+import { SlEnergy } from 'react-icons/sl'
+import { TfiAlarmClock } from 'react-icons/tfi'
+import immune from '../../assets/immune.svg'
+import time from '../../assets/time.svg'
+import energy from '../../assets/energy.svg'
 
 function Landing() {
   return (
-    <motion.div className={s.container}>
+    <div className={s.container}>
       <div className={s.landing}>
         <div className={s.landingWrapper}>
           <motion.div className={s.landingContent}
@@ -46,7 +52,42 @@ function Landing() {
             viewport={{ once: true }} />
         </div>
       </div>
-    </motion.div >
+      <div className={s.cards}>
+        <motion.div className={s.card}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}>
+          <RiHeartAddLine size={'60px'}></RiHeartAddLine>
+          <h4>Becomes Healthier</h4>
+          <p>Immune will stronger if the body is healthier</p>
+          <img src={immune} alt="" />
+        </motion.div>
+        <motion.div className={s.card}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}>
+          <TfiAlarmClock size={'60px'}></TfiAlarmClock>
+          <h4>Save time</h4>
+          <p>Time will no longer be an excuse to be unhealthy</p>
+          <img src={time} alt="" />
+        </motion.div>
+        <motion.div className={s.card}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}>
+          <SlEnergy size={'60px'}></SlEnergy>
+          <h4>Increase energy</h4>
+          <p>Having enough energy can help you achieve a goal</p>
+          <img src={energy} alt="" />
+        </motion.div>
+      </div>
+    </div >
   )
 }
 

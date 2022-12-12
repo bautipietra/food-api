@@ -4,4 +4,7 @@
   right: 30px;
   fill: var(--primary-color);
   cursor: pointer;
+  border-radius: 50%;
+  border: solid 3px #fff;
+  z-index: 8;
 }

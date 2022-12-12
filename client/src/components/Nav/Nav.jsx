@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SeeRecipesButton from '../Button/Button'
 import s from './Nav.module.scss'
@@ -9,9 +9,10 @@ import { motion } from "framer-motion";
 function Nav() {
   const [menu, setMenu] = useState(false)
 
-  if (menu) {
-    window.onscroll = function () { window.scrollTo(0, 0); };
-  }
+  useEffect(() => {
+    if (menu) window.onscroll = function () { window.scrollTo(0, 0); };
+    else window.onscroll = function () { }
+  }, [menu])
 
   return (
     <motion.div className={`${s.container}`}

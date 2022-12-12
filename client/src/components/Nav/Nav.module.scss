@@ -80,7 +80,7 @@
       }
 
       @include m.mq {
-        position: absolute;
+        position: fixed;
         background-color: #fff;
         height: 100vh;
         width: 100vw;

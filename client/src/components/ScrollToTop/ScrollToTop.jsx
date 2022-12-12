@@ -28,7 +28,7 @@ function ScrollToTop() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}>
-          <BsFillArrowUpCircleFill className={s.scrollToTop} size='40px' onClick={() => scrollToTop()}></BsFillArrowUpCircleFill>
+          <BsFillArrowUpCircleFill className={s.scrollToTop} size='50px' onClick={() => scrollToTop()}></BsFillArrowUpCircleFill>
         </motion.div>)
     }
   </>
