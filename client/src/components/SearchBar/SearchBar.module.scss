@@ -1,0 +1,26 @@
+@use '../../m.scss';
+
+.searchBar {
+  position: relative;
+
+  input {
+    border: none;
+    outline: none;
+    padding: 10px 35px 10px 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: var(--text-color);
+
+    @include m.mq {
+      border: solid 2px var(--text-color);
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(-10px, -50%);
+    cursor: pointer;
+  }
+}

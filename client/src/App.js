@@ -1,10 +1,17 @@
-import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Landing from './components/Landing/Landing';
+import Nav from './components/Nav/Nav';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Food</h1>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Nav></Nav>
+        <ScrollToTop></ScrollToTop>
+        <Landing></Landing>
+      </div>
+    </BrowserRouter>
   );
 }
 

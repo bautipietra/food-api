@@ -1,0 +1,23 @@
+@use '../../m.scss';
+
+#seeRecipesButton {
+  background-color: var(--primary-color);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  width: fit-content;
+  font-weight: 600;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @include m.mq {
+    margin: 0 auto;
+  }
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
