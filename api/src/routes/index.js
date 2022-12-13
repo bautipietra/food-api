@@ -14,7 +14,11 @@ const router = Router();
 
 const getApiInfo = async () => {
   const apiUrl = await axios.get('https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5')
-  return apiUrl.data
+  return apiUrl.data.results.map(recipe => {
+    return {
+      ...recipe, name: recipe.title
+    }
+  })
 }
 const getDbInfo = async () => {
   return await Recipe.findAll({
@@ -31,7 +35,7 @@ const getDbInfo = async () => {
 const getAllRecipes = async () => {
   const apiInfo = await getApiInfo()
   const dbInfo = await getDbInfo()
-  const result = apiInfo.results.concat(dbInfo)
+  const result = apiInfo.concat(dbInfo)
   return result
 }
 
@@ -43,7 +47,7 @@ router.get('/recipes', async (req, res) => {
     const allRecipes = await getAllRecipes()
 
     if (name) {
-      const recipeIncludeName = allRecipes.filter(recipe => recipe.title.toLowerCase().includes(name.toLowerCase()))
+      const recipeIncludeName = allRecipes.filter(recipe => recipe.name.toLowerCase().includes(name.toLowerCase()))
 
       if (recipeIncludeName.length) return res.send(recipeIncludeName)
       throw new Error('No se encontró ninguna receta con ese nombre')
@@ -58,8 +62,8 @@ router.get('/recipes', async (req, res) => {
 router.get('/diets', async (req, res) => {
   try {
     const allRecipes = await getApiInfo()
-    allRecipes.results.forEach(recipe => {
-      recipe.diets.forEach(diet => {
+    allRecipes.forEach(recipe => {
+      recipe.diets.map(diet => {
         Diet.findOrCreate({
           where: { name: diet }
         })

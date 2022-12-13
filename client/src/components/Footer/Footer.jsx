@@ -18,7 +18,7 @@ function Footer() {
           </ul>
           <ul>
             <li><h6>Movement</h6></li>
-            <li><Link to={{}}>What Tasty</Link></li>
+            <li><Link to={{}}>What is Tasty</Link></li>
             <li><Link to={{}}>Support Us</Link></li>
           </ul>
           <ul>

@@ -12,6 +12,7 @@ import time from '../../assets/time.svg'
 import energy from '../../assets/energy.svg'
 
 function Landing() {
+
   return (
     <div className={s.container}>
       <motion.div className={s.landing}
