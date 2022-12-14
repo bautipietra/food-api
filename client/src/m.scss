@@ -1,6 +1,6 @@
 /* Mixins */
 
-@mixin mq ($res : 800px) {
+@mixin mq ($res : 1000px) {
   @media screen and (max-width: $res) {
     @content
   }

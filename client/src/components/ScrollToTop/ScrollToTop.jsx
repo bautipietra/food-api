@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { BsFillArrowUpCircleFill } from 'react-icons/bs'
-import s from './ScrollToTop.module.scss'
+import s from './ScrollToTop.module.css'
 import { motion } from 'framer-motion'
 
 function ScrollToTop() {

@@ -10,6 +10,7 @@
     border-radius: 10px;
     font-weight: 600;
     color: var(--text-color);
+    background-color: #f5f5f5;
 
     @include m.mq {
       border: solid 2px var(--text-color);

@@ -1,0 +1,114 @@
+/* Mixins */
+.container {
+  height: 100px;
+  width: 100%;
+  position: relative;
+  background-color: transparent;
+  z-index: 1;
+}
+.container nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  width: 90%;
+  margin: auto;
+  height: 100%;
+}
+.container nav .navWrapper {
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+  gap: 30px;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.3s;
+}
+.container nav .navWrapper ul {
+  display: flex;
+  flex-flow: row;
+  gap: 30px;
+}
+.container nav .navWrapper ul li {
+  list-style: none;
+}
+.container nav .navWrapper ul li a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: var(--font-size-base);
+  position: relative;
+  transition: 0.3s;
+}
+.container nav .navWrapper ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 0;
+  background-color: var(--primary-color);
+  height: 2px;
+  transition: 0.3s;
+}
+.container nav .navWrapper ul li a:hover::before {
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .container nav .navWrapper {
+    position: fixed;
+    background-color: #fff;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    z-index: 10;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .container nav .hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .container nav .menu {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    z-index: 15;
+    cursor: pointer;
+  }
+  .container nav .menu span {
+    background-color: #fff;
+    height: 3px;
+    width: 60%;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .container nav .open span {
+    position: absolute;
+  }
+  .container nav .open span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .container nav .open span:nth-child(2) {
+    opacity: 0;
+  }
+  .container nav .open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+}/*# sourceMappingURL=Nav.module.css.map */

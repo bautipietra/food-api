@@ -1,0 +1,69 @@
+/* Mixins */
+footer {
+  width: 100%;
+  background-color: var(--primary-color);
+  padding: 50px 0;
+}
+footer .footerContainer {
+  display: flex;
+  max-width: 1000px;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  gap: 50px;
+  text-align: center;
+}
+footer .footerContainer p {
+  font-size: var(--font-size-sm);
+  color: var(--secondary-color);
+}
+footer .footerContainer p a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  position: relative;
+}
+footer .footerContainer p a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: 0.3s;
+}
+footer .footerContainer p a:hover::before {
+  width: 100%;
+}
+footer .footerContainer .wrapper {
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+footer .footerContainer .wrapper ul {
+  text-align: start;
+  display: flex;
+  flex-flow: column;
+  gap: 5px;
+  color: var(--secondary-color);
+}
+footer .footerContainer .wrapper ul h6 {
+  font-size: var(--font-size-base);
+}
+footer .footerContainer .wrapper ul li {
+  list-style: none;
+}
+footer .footerContainer .wrapper ul li a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  transition: 0.3s;
+}
+footer .footerContainer .wrapper ul li a:hover {
+  color: #fff;
+}/*# sourceMappingURL=Footer.module.css.map */

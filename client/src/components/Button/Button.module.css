@@ -1,0 +1,24 @@
+/* Mixins */
+#seeRecipesButton {
+  background-color: var(--primary-color);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 600;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media screen and (max-width: 1000px) {
+  #seeRecipesButton {
+    margin: 0 auto;
+  }
+}
+#seeRecipesButton:hover {
+  filter: brightness(1.2);
+}/*# sourceMappingURL=Button.module.css.map */

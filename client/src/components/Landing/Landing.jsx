@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './Landing.module.scss'
+import s from './Landing.module.css'
 import landing from '../../assets/landing.png'
 import { CountUp } from 'count-up-es-react'
 import { motion } from "framer-motion"

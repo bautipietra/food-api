@@ -1,0 +1,14 @@
+.logo {
+  text-decoration: none;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  z-index: 15;
+}
+.logo svg {
+  margin-left: -6px;
+}
+.logo span {
+  font-size: var(--font-size-lg);
+  font-weight: bolder;
+}/*# sourceMappingURL=Logo.module.css.map */

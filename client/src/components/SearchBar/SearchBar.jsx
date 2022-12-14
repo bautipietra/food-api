@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './SearchBar.module.scss'
+import s from './SearchBar.module.css'
 import { FaSearch } from 'react-icons/fa'
 
 function SearchBar() {

@@ -1,11 +1,11 @@
 import React from 'react'
-import s from './Button.module.scss'
+import s from './Button.module.css'
 import { GiCook } from 'react-icons/gi'
 import { Link } from 'react-router-dom'
 
-function SeeRecipesButton({ text, path }) {
+function SeeRecipesButton({ text, path, menu }) {
   return (
-    <Link to={path} id={s.seeRecipesButton}>{text}<GiCook></GiCook></Link>
+    <Link to={path} id={s.seeRecipesButton} onClick={menu}>{text}<GiCook></GiCook></Link>
   )
 }
 
