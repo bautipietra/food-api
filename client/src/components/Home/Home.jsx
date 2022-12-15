@@ -19,21 +19,20 @@ const Home = () => {
     <div>
       <div className={s.container}>
         <div className={s.containerCards}>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
+          {
+            allRecipes.map(rec => <Card
+              id={rec.id}
+              key={rec.id}
+              name={rec.name}
+              image={rec.image}
+              vegetarian={rec.vegetarian}
+              vegan={rec.vegan}
+              glutenFree={rec.glutenFree}
+              dairyFree={rec.dairyFree}
+              time={rec.readyInMinutes}
+            ></Card>)
+          }
         </div>
-      </div>
-      <div>
-        {
-          //allRecipes.map(rec => <p>{rec.license}</p>)
-        }
       </div>
     </div>
   )

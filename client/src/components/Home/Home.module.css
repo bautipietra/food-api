@@ -15,11 +15,4 @@
   align-items: stretch;
   flex-flow: row wrap;
   row-gap: 100px;
-}
-@media screen and (max-width: 1000px) {
-  .container .containerCards {
-    flex-flow: column;
-    align-items: center;
-    gap: 100px;
-  }
 }/*# sourceMappingURL=Home.module.css.map */

@@ -16,11 +16,5 @@
     align-items: stretch;
     flex-flow: row wrap;
     row-gap: 100px;
-
-    @include m.mq {
-      flex-flow: column;
-      align-items: center;
-      gap: 100px;
-    }
   }
 }
