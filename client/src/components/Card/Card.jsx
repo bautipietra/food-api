@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 const Card = ({ id, name, image, vegetarian, vegan, glutenFree, dairyFree, diets, time }) => {
   return (
-    <Link to={`/${id}`} className={s.card}>
+    <Link to={`/recipe/${id}`} className={s.card}>
       <div className={s.cardImage}>
         <img src={image} alt={name} />
       </div>

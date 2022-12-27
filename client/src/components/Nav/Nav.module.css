@@ -35,7 +35,7 @@
 .container nav .navWrapper ul li a {
   text-decoration: none;
   color: var(--primary-color);
-  font-weight: bold;
+  font-weight: 600;
   font-size: var(--font-size-base);
   position: relative;
   transition: 0.3s;
@@ -48,7 +48,7 @@
   transform: translate(-50%, 0);
   width: 0;
   background-color: var(--primary-color);
-  height: 2px;
+  height: 1px;
   transition: 0.3s;
 }
 .container nav .navWrapper ul li a:hover::before {

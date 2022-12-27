@@ -10,8 +10,16 @@ import { TfiAlarmClock } from 'react-icons/tfi'
 import immune from '../../assets/immune.svg'
 import time from '../../assets/time.svg'
 import energy from '../../assets/energy.svg'
+import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 
 function Landing() {
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className={s.container}>
@@ -34,7 +42,7 @@ function Landing() {
             <p>
               Eating healthy is now easier with tasty, access thousands of recipes with a single click.
             </p>
-            <Button text={'See recipes'} path={'/recipes'}></Button>
+            <Button text={'See recipes'} path={'/recipes?page=1'}></Button>
             <div className={s.landingCounters}>
               <div>
                 <span>+<CountUp start={0} end={5000} duration={3000} /></span>

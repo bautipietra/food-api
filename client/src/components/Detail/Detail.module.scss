@@ -1,0 +1,175 @@
+@use '../../m.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  margin: 100px 0;
+
+  .detail {
+    display: flex;
+    max-width: 1000px;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    gap: 50px;
+
+    @include m.mq {
+      text-align: center;
+    }
+
+    h6 {
+      color: var(--text-color);
+      font-size: var(--font-size-md);
+    }
+
+    .related {
+      display: flex;
+    }
+
+    .detailSteps {
+      display: flex;
+      gap: 20px;
+      flex-flow: column;
+
+      .step {
+        display: flex;
+        align-items: center;
+        flex-flow: row;
+        gap: 10px;
+
+        @include m.mq {
+          flex-flow: column;
+        }
+
+        .stepNum {
+          font-weight: bold;
+          background-color: var(--primary-color);
+          border-radius: 50%;
+          height: 40px;
+          width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+        }
+
+        .stepInfo {
+          max-width: calc(100% - 50px);
+        }
+      }
+    }
+
+    .hr {
+      background-color: var(--primary-color);
+      height: 1px;
+      width: 100%;
+    }
+
+    .detailRow {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      @include m.mq {
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .detailImg {
+        width: 45%;
+        height: 300px;
+        border-radius: 5px;
+        position: relative;
+
+        @include m.mq {
+          flex-flow: column;
+          margin-bottom: 20px;
+          max-width: 500px;
+          width: calc(100% - 10px);
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          height: 100%;
+          width: 100%;
+          border: solid 1px var(--primary-color);
+          z-index: -1;
+          border-radius: 5px;
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          transition: 0.3s;
+          border-radius: 5px;
+        }
+      }
+
+      .detailWrapper {
+        width: 45%;
+        display: flex;
+        flex-flow: column;
+        gap: 20px;
+        text-align: center;
+        justify-content: center;
+
+        @include m.mq {
+          width: 100%;
+        }
+
+        .saveRecipe {
+          font-weight: bold;
+          background-color: var(--primary-color);
+          border-radius: 10px;
+          padding: 10px 20px;
+          max-width: 300px;
+          width: 80%;
+          margin: 0 auto;
+          color: #fff;
+          cursor: pointer;
+
+          &:hover {
+            filter: brightness(1.1);
+          }
+        }
+
+        .detailStats {
+          display: flex;
+          justify-content: space-evenly;
+
+          span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            svg {
+              fill: var(--primary-color);
+            }
+          }
+        }
+      }
+    }
+
+    .detailSummary {
+      cursor: text;
+      color: var(--text-color);
+
+      a {
+        pointer-events: none;
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+  }
+}

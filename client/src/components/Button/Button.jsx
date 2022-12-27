@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 function SeeRecipesButton({ text, path, menu }) {
   return (
-    <Link to={path} id={s.seeRecipesButton} onClick={menu}>{text}<GiCook></GiCook></Link>
+    <Link to={path} replace='false' id={s.seeRecipesButton} onClick={() => menu}>{text}<GiCook></GiCook></Link>
   )
 }
 

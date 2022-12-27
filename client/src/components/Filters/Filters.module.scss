@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  width: 100%;
+  background-color: #f5f5f5;
+  align-items: center;
+  justify-content: center;
+
+  .filters {
+    display: flex;
+    max-width: 1000px;
+    width: 90%;
+    margin: auto;
+    padding: 20px 0;
+    border-radius: 10px;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    row-gap: 100px;
+    background-color: #fff;
+
+    .filtersPagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      svg {
+        fill: var(--primary-color);
+      }
+
+      .disable {
+        pointer-events: none;
+        opacity: 0.8;
+      }
+    }
+  }
+}

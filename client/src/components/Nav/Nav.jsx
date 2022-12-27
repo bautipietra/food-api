@@ -10,7 +10,7 @@ function Nav() {
   const [menu, setMenu] = useState(false)
 
   useEffect(() => {
-    if (menu) window.onscroll = function () { if (window.innerWidth < 800) window.scrollTo(0, 0); };
+    if (menu) window.onscroll = function () { if (window.innerWidth < 1000) window.scrollTo(0, 0); };
     else window.onscroll = function () { }
   }, [menu])
 
@@ -29,7 +29,7 @@ function Nav() {
         </div>
         <div className={`${s.navWrapper} ${menu ? '' : s.hidden}`}>
           <ul>
-            <li><Link to={'/recipes'} onClick={() => setMenu(false)}>Recipes</Link></li>
+            <li><Link to={'/recipes?page=1'} onClick={() => setMenu(false)}>Recipes</Link></li>
             <li><Link to={'/favorites'} onClick={() => setMenu(false)}>Favorites</Link></li>
           </ul>
           <SearchBar></SearchBar>

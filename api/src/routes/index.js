@@ -44,13 +44,13 @@ const getAllRecipes = async () => {
 router.get('/recipes', async (req, res) => {
   try {
     const { name } = req.query
-    const allRecipes = await getAllRecipes()
+    let allRecipes = await getAllRecipes()
 
     if (name) {
       const recipeIncludeName = allRecipes.filter(recipe => recipe.name.toLowerCase().includes(name.toLowerCase()))
 
-      if (recipeIncludeName.length) return res.send(recipeIncludeName)
-      throw new Error('No se encontró ninguna receta con ese nombre')
+      if (recipeIncludeName.length) allRecipes = recipeIncludeName
+      else throw new Error('No se encontró ninguna receta con ese nombre')
     }
 
     return res.send(allRecipes)

@@ -1,0 +1,160 @@
+/* Mixins */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  margin: 100px 0;
+}
+.container .detail {
+  display: flex;
+  max-width: 1000px;
+  width: 90%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  gap: 50px;
+}
+@media screen and (max-width: 1000px) {
+  .container .detail {
+    text-align: center;
+  }
+}
+.container .detail h6 {
+  color: var(--text-color);
+  font-size: var(--font-size-md);
+}
+.container .detail .related {
+  display: flex;
+}
+.container .detail .detailSteps {
+  display: flex;
+  gap: 20px;
+  flex-flow: column;
+}
+.container .detail .detailSteps .step {
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+  gap: 10px;
+}
+@media screen and (max-width: 1000px) {
+  .container .detail .detailSteps .step {
+    flex-flow: column;
+  }
+}
+.container .detail .detailSteps .step .stepNum {
+  font-weight: bold;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.container .detail .detailSteps .step .stepInfo {
+  max-width: calc(100% - 50px);
+}
+.container .detail .hr {
+  background-color: var(--primary-color);
+  height: 1px;
+  width: 100%;
+}
+.container .detail .detailRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .container .detail .detailRow {
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.container .detail .detailRow .detailImg {
+  width: 45%;
+  height: 300px;
+  border-radius: 5px;
+  position: relative;
+}
+@media screen and (max-width: 1000px) {
+  .container .detail .detailRow .detailImg {
+    flex-flow: column;
+    margin-bottom: 20px;
+    max-width: 500px;
+    width: calc(100% - 10px);
+  }
+}
+.container .detail .detailRow .detailImg::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 100%;
+  width: 100%;
+  border: solid 1px var(--primary-color);
+  z-index: -1;
+  border-radius: 5px;
+}
+.container .detail .detailRow .detailImg img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+.container .detail .detailRow .detailWrapper {
+  width: 45%;
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+  text-align: center;
+  justify-content: center;
+}
+@media screen and (max-width: 1000px) {
+  .container .detail .detailRow .detailWrapper {
+    width: 100%;
+  }
+}
+.container .detail .detailRow .detailWrapper .saveRecipe {
+  font-weight: bold;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  padding: 10px 20px;
+  max-width: 300px;
+  width: 80%;
+  margin: 0 auto;
+  color: #fff;
+  cursor: pointer;
+}
+.container .detail .detailRow .detailWrapper .saveRecipe:hover {
+  filter: brightness(1.1);
+}
+.container .detail .detailRow .detailWrapper .detailStats {
+  display: flex;
+  justify-content: space-evenly;
+}
+.container .detail .detailRow .detailWrapper .detailStats span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.container .detail .detailRow .detailWrapper .detailStats span svg {
+  fill: var(--primary-color);
+}
+.container .detail .detailSummary {
+  cursor: text;
+  color: var(--text-color);
+}
+.container .detail .detailSummary a {
+  pointer-events: none;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+}/*# sourceMappingURL=Detail.module.css.map */

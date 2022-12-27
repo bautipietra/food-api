@@ -1,17 +1,26 @@
 /* Mixins */
-.container {
+.flex {
+  min-height: calc(100vh - 100px);
   display: flex;
-  min-height: 100vh;
+  flex-flow: column;
+  gap: 50px;
+  background-color: #f5f5f5;
+  padding: 50px 0;
+}
+.flex .container {
+  display: flex;
   width: 100%;
   background-color: #f5f5f5;
-  padding: 100px 0;
+  align-items: center;
+  justify-content: center;
 }
-.container .containerCards {
+.flex .container .containerCards {
   display: flex;
   max-width: 1000px;
   width: 90%;
   margin: auto;
-  justify-content: space-between;
+  gap: 5%;
+  justify-content: start;
   align-items: stretch;
   flex-flow: row wrap;
   row-gap: 100px;
