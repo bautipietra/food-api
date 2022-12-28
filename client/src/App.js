@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes, Switch } from 'react-router-dom'
+import Create from './components/Create/Create';
 import Detail from './components/Detail/Detail';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
@@ -16,7 +17,8 @@ function App() {
           <Route exact path='/' element={<Landing></Landing>}></Route>
           <Route path='/recipes' element={<Home></Home>}></Route>
           <Route exact path='/recipe/:id' element={<Detail></Detail>}></Route>
-          <Route path='/' element={<Landing></Landing>}></Route>
+          <Route exact path='/create' element={<Create></Create>}></Route>
+          <Route path='*' element={<Landing></Landing>}></Route>
         </Routes>
         <Footer></Footer>
       </div>

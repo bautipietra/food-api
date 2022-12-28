@@ -12,26 +12,26 @@ function Footer() {
         <div className={s.wrapper}>
           <ul>
             <li><h6>About</h6></li>
-            <li><Link to={{}}>About us</Link></li>
-            <li><Link to={{}}>Features</Link></li>
-            <li><Link to={{}}>News & Blog</Link></li>
+            <li><Link to={'/'}>About us</Link></li>
+            <li><Link to={'/'}>Features</Link></li>
+            <li><Link to={'/'}>News & Blog</Link></li>
           </ul>
           <ul>
             <li><h6>Movement</h6></li>
-            <li><Link to={{}}>What is Tasty</Link></li>
-            <li><Link to={{}}>Support Us</Link></li>
+            <li><Link to={'/'}>What is Tasty</Link></li>
+            <li><Link to={'/'}>Support Us</Link></li>
           </ul>
           <ul>
             <li><h6>Company</h6></li>
-            <li><Link to={{}}>Why Tasty</Link></li>
-            <li><Link to={{}}>Capital</Link></li>
-            <li><Link to={{}}>Security</Link></li>
+            <li><Link to={'/'}>Why Tasty</Link></li>
+            <li><Link to={'/'}>Capital</Link></li>
+            <li><Link to={'/'}>Security</Link></li>
           </ul>
           <ul>
             <li><h6>Support</h6></li>
-            <li><Link to={{}}>FAQs</Link></li>
-            <li><Link to={{}}>Support Center</Link></li>
-            <li><Link to={{}}>Contact Us</Link></li>
+            <li><Link to={'/'}>FAQs</Link></li>
+            <li><Link to={'/'}>Support Center</Link></li>
+            <li><Link to={'/'}>Contact Us</Link></li>
           </ul>
         </div>
         <p>

@@ -1,0 +1,75 @@
+/* Mixins */
+.container {
+  background-color: #f5f5f5;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container h2 {
+  color: var(--primary-color);
+}
+.container .create {
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 1000px;
+  width: 90%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 50px 0;
+}
+.container .create form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 90%;
+}
+.container .create form .formWrapper {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .create form .formWrapper label {
+  font-weight: 600;
+}
+.container .create form .formWrapper label span {
+  color: #999;
+  font-weight: 500;
+}
+.container .create form .formWrapper input,
+.container .create form .formWrapper select {
+  width: 60%;
+  background-color: #f5f5f5;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+@media screen and (max-width: 1000px) {
+  .container .create form .formWrapper input,
+.container .create form .formWrapper select {
+    width: 100%;
+  }
+}
+.container .create form button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 0;
+  width: 30%;
+  color: #fff;
+  margin-top: 20px;
+}
+@media screen and (max-width: 1000px) {
+  .container .create form button {
+    width: 60%;
+  }
+}/*# sourceMappingURL=Create.module.css.map */

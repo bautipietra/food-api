@@ -13,6 +13,7 @@ const router = Router();
 /* Obteniendo todos los datos */
 
 const getApiInfo = async () => {
+  //const apiUrl = await axios.get('https://api.spoonacular.com/recipes/complexSearch?apiKey=b55a31b76d1a44e7a369ccf8162084c5&addRecipeInformation=true&number=100', { headers: { "accept-Encoding": "gzip,deflate,compress" } })
   const apiUrl = await axios.get('https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5')
   return apiUrl.data.results.map(recipe => {
     return {

@@ -8,6 +8,10 @@
   min-height: calc(100vh - 100px);
   margin: 100px 0;
 
+  @include m.mq {
+    margin: 50px 0;
+  }
+
   .detail {
     display: flex;
     max-width: 1000px;
