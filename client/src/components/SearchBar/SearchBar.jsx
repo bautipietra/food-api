@@ -3,13 +3,14 @@ import s from './SearchBar.module.css'
 import { FaSearch } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
-function SearchBar() {
+function SearchBar({ menu }) {
 
   const navigate = useNavigate();
   const search = (e) => {
     if (e.key === 'Enter') {
       navigate('/recipes?page=1&search=' + e.target.value)
       e.target.value = ''
+      menu()
     }
   }
 

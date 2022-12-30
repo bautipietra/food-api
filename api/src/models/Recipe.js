@@ -18,30 +18,29 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     diet: {
-      type: DataTypes.ENUM({
-        values: [
-          "gluten free",
-          "dairy free",
-          "lacto ovo vegetarian",
-          "vegan",
-          "paleolithic",
-          "primal",
-          "whole 30",
-          "pescatarian",
-          "ketogenic",
-          "fodmap friendly"
-        ]
-      }),
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    steps: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    readyInMinutes: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     healthScore: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false
+    servings: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     createdInDb: {
       type: DataTypes.BOOLEAN,

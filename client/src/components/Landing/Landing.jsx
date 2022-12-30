@@ -10,7 +10,7 @@ import { TfiAlarmClock } from 'react-icons/tfi'
 import immune from '../../assets/immune.svg'
 import time from '../../assets/time.svg'
 import energy from '../../assets/energy.svg'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 
 function Landing() {

@@ -5,6 +5,7 @@ import { TfiAlarmClock } from 'react-icons/tfi'
 import { motion } from 'framer-motion'
 
 const Card = ({ id, name, image, vegetarian, vegan, glutenFree, dairyFree, diets, time }) => {
+
   return (
     <Link to={`/recipe/${id}`} className={s.card}>
       <div className={s.cardImage}>

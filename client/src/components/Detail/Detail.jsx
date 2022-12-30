@@ -26,6 +26,11 @@ const Detail = () => {
     dispatch(getRecipeById(id))
   }, [])
 
+  if (recipe.createdInDb) {
+    recipe.diets = [recipe.diet]
+    console.log(recipe);
+  }
+
   useEffect(() => {
     return () => {
       dispatch(clearRecipeById())
@@ -59,7 +64,7 @@ const Detail = () => {
                     <span><b>{recipe.healthScore}</b> Health Score<RiMentalHealthLine size={'20px'}></RiMentalHealthLine></span>
                   </div>
                 </div>
-                <p><b>Diet types:</b> {recipe.diets.join(', ')}.</p>
+                <p><b>Diet types:</b> {recipe.diets && recipe.diets.join(', ')}.</p>
                 <span className={s.saveRecipe}>Save</span>
               </div>
             </div>
@@ -67,15 +72,20 @@ const Detail = () => {
             <div className={s.hr}></div>
             <div className={s.detailSteps}>
               {
-                recipe.analyzedInstructions[0] &&
-                recipe.analyzedInstructions[0].steps.map(step => {
-                  return (
-                    <div className={s.step}>
-                      <p className={s.stepNum}>{step.number}</p>
-                      <p className={s.stepInfo}>{step.step}</p>
-                    </div>
-                  )
-                })
+                recipe.steps ?
+                  <div className={s.step}>
+                    <p>{recipe.steps}</p>
+                  </div> :
+                  recipe.analyzedInstructions &&
+                  recipe.analyzedInstructions[0] &&
+                  recipe.analyzedInstructions[0].steps.map(step => {
+                    return (
+                      <div className={s.step}>
+                        <p className={s.stepNum}>{step.number}</p>
+                        <p className={s.stepInfo}>{step.step}</p>
+                      </div>
+                    )
+                  })
               }
             </div>
             <div className={s.related}>

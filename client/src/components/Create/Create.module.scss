@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 50px 0;
 
   h2 {
     color: var(--primary-color);
@@ -39,6 +40,10 @@
         justify-content: center;
         align-items: center;
 
+        .error {
+          color: red;
+        }
+
         label {
           font-weight: 600;
 
@@ -71,6 +76,7 @@
         width: 30%;
         color: #fff;
         margin-top: 20px;
+        cursor: pointer;
 
         @include m.mq {
           width: 60%;

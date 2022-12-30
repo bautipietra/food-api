@@ -23,6 +23,12 @@ const Home = () => {
     dispatch(getRecipes())
   }, [])
 
+  allRecipes.forEach(r => {
+    if (r.createdInDb) {
+      r.diets = [r.diet]
+    }
+  })
+
   useEffect(() => {
     return dispatch(clearRecipes())
   }, [])

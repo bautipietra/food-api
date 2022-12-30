@@ -32,7 +32,7 @@ function Nav() {
             <li><Link to={'/recipes?page=1'} onClick={() => setMenu(false)}>Recipes</Link></li>
             <li><Link to={'/favorites'} onClick={() => setMenu(false)}>Favorites</Link></li>
           </ul>
-          <SearchBar></SearchBar>
+          <SearchBar menu={() => setMenu(false)}></SearchBar>
           <Button text={'Create'} path={'/create'} onClick={() => setMenu(false)} menu={() => setMenu(false)}></Button>
         </div>
       </nav>

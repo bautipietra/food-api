@@ -81,7 +81,7 @@ router.get('/recipes/:id', async (req, res) => {
   try {
     const { id } = req.params
     const allRecipes = await getAllRecipes()
-    const recipeId = allRecipes.find(recipe => Number(recipe.id) === Number(id))
+    const recipeId = allRecipes.find(recipe => recipe.id == id)
     if (recipeId) return res.send(recipeId)
     throw new Error('No existe ninguna receta con ese ID')
   } catch (error) {
