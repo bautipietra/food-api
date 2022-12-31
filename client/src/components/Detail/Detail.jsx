@@ -28,7 +28,6 @@ const Detail = () => {
 
   if (recipe.createdInDb) {
     recipe.diets = [recipe.diet]
-    console.log(recipe);
   }
 
   useEffect(() => {

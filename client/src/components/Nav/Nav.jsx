@@ -33,7 +33,7 @@ function Nav() {
             <li><Link to={'/favorites'} onClick={() => setMenu(false)}>Favorites</Link></li>
           </ul>
           <SearchBar menu={() => setMenu(false)}></SearchBar>
-          <Button text={'Create'} path={'/create'} onClick={() => setMenu(false)} menu={() => setMenu(false)}></Button>
+          <Button text={'Create'} path={'/create'} onClick={() => setMenu(false)} menu={menu} menuF={() => setMenu(false)}></Button>
         </div>
       </nav>
     </motion.div>

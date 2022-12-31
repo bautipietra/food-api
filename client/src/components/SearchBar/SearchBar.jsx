@@ -10,7 +10,9 @@ function SearchBar({ menu }) {
     if (e.key === 'Enter') {
       navigate('/recipes?page=1&search=' + e.target.value)
       e.target.value = ''
-      menu()
+      if (window.innerWidth < 1000) {
+        menu()
+      }
     }
   }
 
