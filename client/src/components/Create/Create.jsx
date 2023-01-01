@@ -3,35 +3,42 @@ import s from './Create.module.css'
 import { motion } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { getDiets } from '../../actions'
+import { getDiets, getRecipes } from '../../actions'
 import axios from 'axios'
 
 const Create = () => {
 
   const dispatch = useDispatch()
   const diets = useSelector((state) => state.diets)
+  const recipes = useSelector((state) => state.recipes)
   useEffect(() => {
     dispatch(getDiets())
+    dispatch(getRecipes())
   }, [])
 
   let titleValue
   let titleError = true
   const titleHandler = (e) => {
     const error = document.querySelector('#titleError')
+    const exist = recipes.find(r => r.name == e.target.value)
     if (e.target.value.length == 0) {
       error.textContent = ''
       titleError = true
     }
     else if (e.target.value.length < 3) {
-      error.textContent = 'The title must have at least 3 digits'
+      error.textContent = 'The title must have at least 3 characters'
       titleError = true
     }
     else if (!isNaN(e.target.value)) {
-      error.textContent = 'Title must have letters'
+      error.textContent = 'The title must have letters'
       titleError = true
     }
     else if (e.target.value.length > 100) {
-      error.textContent = 'The title must have less than 100 digits'
+      error.textContent = 'The title must have less than 100 characters'
+      titleError = true
+    }
+    else if (exist) {
+      error.textContent = 'This recipe already exists'
       titleError = true
     }
     else {
@@ -50,15 +57,15 @@ const Create = () => {
       summaryError = true
     }
     else if (e.target.value.length < 10) {
-      error.textContent = 'The summary must have at least 10 digits'
+      error.textContent = 'The summary must have at least 10 characters'
       summaryError = true
     }
     else if (!isNaN(e.target.value)) {
-      error.textContent = 'Summary must have letters'
+      error.textContent = 'The summary must have letters'
       titleError = true
     }
     else if (e.target.value.length > 1000) {
-      error.textContent = 'The summary must have less than 1000 digits'
+      error.textContent = 'The summary must have less than 1000 characters'
       summaryError = true
     }
     else {
@@ -77,15 +84,15 @@ const Create = () => {
       stepsError = true
     }
     else if (e.target.value.length < 10) {
-      error.textContent = 'The steps must have at least 10 digits'
+      error.textContent = 'The steps must have at least 10 characters'
       stepsError = true
     }
     else if (!isNaN(e.target.value)) {
-      error.textContent = 'Steps must have letters'
+      error.textContent = 'The steps must have letters'
       titleError = true
     }
     else if (e.target.value.length > 1000) {
-      error.textContent = 'The steps must have less than 1000 digits'
+      error.textContent = 'The steps must have less than 1000 characters'
       stepsError = true
     }
     else {
@@ -108,11 +115,11 @@ const Create = () => {
       healthError = true
     }
     else if (e.target.value < 1) {
-      error.textContent = 'The min health score is 1'
+      error.textContent = 'The minimum health score is 1'
       healthError = true
     }
     else if (e.target.value > 100) {
-      error.textContent = 'The max health score is 100'
+      error.textContent = 'The maximum health score is 100'
       healthError = true
     }
     else {
@@ -139,7 +146,7 @@ const Create = () => {
       preparationError = true
     }
     else if (e.target.value < 1) {
-      error.textContent = 'The min preparation time score is 1'
+      error.textContent = 'The minimum preparation time score is 1'
       preparationError = true
     }
     else {
@@ -158,11 +165,11 @@ const Create = () => {
       servingsError = true
     }
     else if (isNaN(e.target.value)) {
-      error.textContent = 'Servings time must be a number'
+      error.textContent = 'Servings must be a number'
       servingsError = true
     }
     else if (e.target.value < 1 || e.target.value > 12) {
-      error.textContent = 'Servings must to be a number between 1 and 12'
+      error.textContent = 'Servings must be a number between 1 and 12'
       servingsError = true
     }
     else {
@@ -177,15 +184,15 @@ const Create = () => {
   const dietsHandler = (e) => {
     const error = document.querySelector('#dietsError')
     if (e.target.value.length == 0) {
-      error.textContent = 'You must have to select an option'
+      error.textContent = 'You have to select an option'
       dietsError = true
     }
     else if (e.target.value == 'null') {
-      error.textContent = 'You must have to select an option'
+      error.textContent = 'You have to select an option'
       dietsError = true
     }
     else if (!diets.find(d => d.name == e.target.value)) {
-      error.textContent = 'You must have to select one of the pre selected options'
+      error.textContent = 'You have to select one of the preselected options'
       dietsError = true
     }
     else {
@@ -209,11 +216,11 @@ const Create = () => {
       imageError = true
     }
     else if (!url) {
-      error.textContent = 'Image must be a valid url'
+      error.textContent = 'Image must be a valid link'
       imageError = true
     }
-    else if (!e.target.value.toLowerCase().endsWith('.jpg') && !e.target.value.toLowerCase().endsWith('.png') && !e.target.value.toLowerCase().endsWith('.svg') && !e.target.value.toLowerCase().endsWith('.webp') && !e.target.value.toLowerCase().endsWith('jpeg')) {
-      error.textContent = 'The url must be an image'
+    else if (!e.target.value.toLowerCase().includes('.jpg') && !e.target.value.toLowerCase().includes('.png') && !e.target.value.toLowerCase().includes('.svg') && !e.target.value.toLowerCase().includes('.webp') && !e.target.value.toLowerCase().includes('jpeg')) {
+      error.textContent = 'The link must be an image'
       imageError = true
     }
     else {
@@ -236,7 +243,7 @@ const Create = () => {
         steps: stepsValue,
         diet: dietsValue
       })
-      alert('Recipe was created successfully')
+      alert('The recipe was created successfully')
     }
   }
 
@@ -281,7 +288,7 @@ const Create = () => {
             <span className={s.error} id={'preparationError'}></span>
           </div>
           <div className={s.formWrapper}>
-            <label htmlFor="servings">Servings <span>(from 1 to 10)</span> *</label>
+            <label htmlFor="servings">Servings <span>(from 1 to 12)</span> *</label>
             <input type="number" min={'0'} max={'10'} id='servings' name='servings' placeholder='servings' onChange={(e) => servingsHandler(e)} />
             <span className={s.error} id={'servingsError'}></span>
           </div>

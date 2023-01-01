@@ -180,10 +180,6 @@ const Home = () => {
                   key={rec.id}
                   name={rec.name}
                   image={rec.image}
-                  vegetarian={rec.vegetarian}
-                  vegan={rec.vegan}
-                  glutenFree={rec.glutenFree}
-                  dairyFree={rec.dairyFree}
                   diets={rec.diets}
                   time={rec.readyInMinutes}
                 ></Card>)

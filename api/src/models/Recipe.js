@@ -23,7 +23,20 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     diet: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM({
+        values: [
+          "gluten free",
+          "dairy free",
+          "lacto ovo vegetarian",
+          "vegan",
+          "paleolithic",
+          "primal",
+          "whole 30",
+          "pescatarian",
+          "ketogenic",
+          "fodmap friendly"
+        ]
+      }),
       allowNull: false,
     },
     steps: {

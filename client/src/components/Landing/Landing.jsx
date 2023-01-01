@@ -40,7 +40,7 @@ function Landing() {
               Changing your <span>eating</span> habits
             </h1>
             <p>
-              Eating healthy is now easier with tasty, access thousands of recipes with a single click.
+              Eating healthy is now easier with Tasty. Access thousands of recipes with a single click.
             </p>
             <Button text={'See recipes'} path={'/recipes?page=1'}></Button>
             <div className={s.landingCounters}>
@@ -74,8 +74,8 @@ function Landing() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}>
           <RiHeartAddLine size={'60px'}></RiHeartAddLine>
-          <h4>Becomes Healthier</h4>
-          <p>Immune will stronger if the body is healthier</p>
+          <h4>Become healthier</h4>
+          <p>Immunity will be stronger if the body is healthier</p>
           <img src={immune} alt="doctor" />
         </motion.div>
         <motion.div className={s.card}
