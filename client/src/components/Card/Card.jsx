@@ -12,15 +12,7 @@ const Card = ({ id, name, image, diets, time }) => {
         <img src={image} alt={name} />
       </div>
       <h6>{name}</h6>
-      <div className={s.cardInfo}>
-        <div className={s.cardInfoDiets}>
-          <p>{diets.join(', ')}</p>
-        </div>
-        <div className={s.cardInfoTime}>
-          <img src="https://spoonacular.com/application/frontend/images/badges/fast.svg" alt="" size='31.5px' />
-          <span>{time} min</span>
-        </div>
-      </div>
+      <p>{diets.join(', ')}</p>
     </Link>
   )
 }
