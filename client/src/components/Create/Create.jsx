@@ -18,9 +18,9 @@ const Create = () => {
 
   let titleValue
   let titleError = true
-  const titleHandler = (e) => {
+  const titleHandler = async (e) => {
     const error = document.querySelector('#titleError')
-    const exist = recipes.find(r => r.name == e.target.value)
+    const exist = await recipes.find(r => r.name == e.target.value)
     if (e.target.value.length == 0) {
       error.textContent = ''
       titleError = true
