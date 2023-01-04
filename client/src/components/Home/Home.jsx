@@ -180,8 +180,7 @@ const Home = () => {
                   key={rec.id}
                   name={rec.name}
                   image={rec.image}
-                  diets={rec.diets}
-                  time={rec.readyInMinutes}
+                  summary={rec.summary}
                 ></Card>)
               }
             </motion.div> :

@@ -56,8 +56,8 @@ const Create = () => {
       error.textContent = ''
       summaryError = true
     }
-    else if (e.target.value.length < 10) {
-      error.textContent = 'The summary must have at least 10 characters'
+    else if (e.target.value.length < 100) {
+      error.textContent = 'The summary must have at least 100 characters'
       summaryError = true
     }
     else if (!isNaN(e.target.value)) {
@@ -83,8 +83,8 @@ const Create = () => {
       error.textContent = ''
       stepsError = true
     }
-    else if (e.target.value.length < 10) {
-      error.textContent = 'The steps must have at least 10 characters'
+    else if (e.target.value.length < 100) {
+      error.textContent = 'The steps must have at least 100 characters'
       stepsError = true
     }
     else if (!isNaN(e.target.value)) {

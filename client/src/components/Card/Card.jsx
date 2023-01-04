@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { TfiAlarmClock } from 'react-icons/tfi'
 import { motion } from 'framer-motion'
 
-const Card = ({ id, name, image, diets, time }) => {
+const Card = ({ id, name, image, summary }) => {
 
   return (
     <Link to={`/recipe/${id}`} className={s.card}>
@@ -12,7 +12,7 @@ const Card = ({ id, name, image, diets, time }) => {
         <img src={image} alt={name} />
       </div>
       <h6>{name}</h6>
-      <p>{diets.join(', ')}</p>
+      <p dangerouslySetInnerHTML={{ __html: summary }} className={s.summary}></p>
     </Link>
   )
 }

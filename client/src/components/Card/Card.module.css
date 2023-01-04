@@ -6,7 +6,6 @@
   flex: 1 1 30%;
   max-width: 30%;
   flex-flow: column;
-  align-items: center;
   justify-content: space-between;
   padding-bottom: 20px;
   transition: 0.3s;
@@ -33,6 +32,7 @@
   overflow: hidden;
   border-radius: 5px 5px 0 0;
   width: 100%;
+  height: 200px;
 }
 .card .cardImage img {
   width: 100%;
@@ -43,43 +43,23 @@
 }
 .card h6 {
   font-size: var(--font-size-base);
-  max-width: 90%;
-  text-align: center;
-}
-.card .cardInfo {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-flow: column-reverse;
   width: 90%;
-  gap: 20px;
+  margin: auto;
 }
-.card .cardInfo .cardInfoDiets {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 3px;
+.card .summary {
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin: auto;
 }
-.card .cardInfo .cardInfoDiets img {
-  height: 30px;
-  -o-object-fit: cover;
-     object-fit: cover;
+.card .summary b {
+  font-weight: normal;
 }
-.card .cardInfo .cardInfoTime {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.card .cardInfo .cardInfoTime svg {
-  fill: var(--primary-color);
-}
-.card .cardInfo .cardInfoTime img {
-  height: 30px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.card .cardInfo .cardInfoTime span {
-  white-space: nowrap;
-  font-weight: 600;
+.card .summary a {
+  text-decoration: none;
+  color: var(--text-color);
 }/*# sourceMappingURL=Card.module.css.map */

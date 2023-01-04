@@ -9,8 +9,12 @@ import Loader from '../Loader/Loader';
 import { TfiAlarmClock } from 'react-icons/tfi'
 import { VscPerson } from 'react-icons/vsc'
 import { RiMentalHealthLine } from 'react-icons/ri'
+import { reactLocalStorage } from 'reactjs-localstorage';
+import { useState } from 'react';
 
 const Detail = () => {
+
+  const [count, setCount] = useState(0)
 
   const { pathname } = useLocation();
 
@@ -35,6 +39,22 @@ const Detail = () => {
       dispatch(clearRecipeById())
     }
   }, [])
+
+  let isFavorite = false
+  if (reactLocalStorage.getObject('favorites').length) {
+    isFavorite = reactLocalStorage.getObject('favorites').find(r => r == id)
+  }
+
+  const favoritesHandler = (id) => {
+    if (!isFavorite) {
+      if (!reactLocalStorage.getObject('favorites').length) reactLocalStorage.setObject('favorites', [id])
+      else reactLocalStorage.setObject('favorites', [...reactLocalStorage.getObject('favorites'), id])
+    } else {
+      const newFavorites = reactLocalStorage.getObject('favorites').filter(r => r != id)
+      reactLocalStorage.setObject('favorites', newFavorites)
+    }
+    setCount(count + 1)
+  }
 
   return (
     <div className={s.container}>
@@ -64,7 +84,7 @@ const Detail = () => {
                   </div>
                 </div>
                 <p><b>Diet types:</b> {recipe.diets && recipe.diets.join(', ')}.</p>
-                <span className={s.saveRecipe}>Save</span>
+                <span className={s.saveRecipe} onClick={() => favoritesHandler(id)}>{isFavorite ? 'Remove from favorites' : 'Add to favorites'}</span>
               </div>
             </div>
             <p dangerouslySetInnerHTML={{ __html: recipe.summary }} className={s.detailSummary}></p>
@@ -79,7 +99,7 @@ const Detail = () => {
                   recipe.analyzedInstructions[0] &&
                   recipe.analyzedInstructions[0].steps.map(step => {
                     return (
-                      <div className={s.step}>
+                      <div className={s.step} key={step.step}>
                         <p className={s.stepNum}>{step.number}</p>
                         <p className={s.stepInfo}>{step.step}</p>
                       </div>
