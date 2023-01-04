@@ -8,7 +8,7 @@ import Landing from './components/Landing/Landing';
 import Nav from './components/Nav/Nav';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3001/'
+axios.defaults.baseURL = 'https://tasty-recipes-app-production.up.railway.app/'
 
 function App() {
   return (
