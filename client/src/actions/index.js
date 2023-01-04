@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const getRecipes = () => {
   return async (dispatch) => {
-    const json = await axios(`http://localhost:3001/recipes`)
+    const json = await axios(`/recipes`)
     return dispatch({
       type: 'GET_RECIPES',
       payload: json.data
@@ -20,7 +20,7 @@ export const clearRecipes = () => {
 
 export const getRecipeById = (id) => {
   return async (dispatch) => {
-    const json = await axios(`http://localhost:3001/recipes/` + id)
+    const json = await axios(`/recipes/` + id)
     return dispatch({
       type: 'GET_RECIPE_BY_ID',
       payload: json.data
@@ -38,7 +38,7 @@ export const clearRecipeById = () => {
 
 export const getDiets = () => {
   return async (dispatch) => {
-    const json = await axios(`http://localhost:3001/diets`)
+    const json = await axios(`/diets`)
     return dispatch({
       type: 'GET_DIETS',
       payload: json.data

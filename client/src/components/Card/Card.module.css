@@ -55,6 +55,7 @@
   line-clamp: 3;
   -webkit-box-orient: vertical;
   margin: auto;
+  color: #555;
 }
 .card .summary b {
   font-weight: normal;

@@ -7,6 +7,8 @@ import Home from './components/Home/Home';
 import Landing from './components/Landing/Landing';
 import Nav from './components/Nav/Nav';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:3001/'
 
 function App() {
   return (

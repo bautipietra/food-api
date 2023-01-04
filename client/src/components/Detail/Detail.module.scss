@@ -141,6 +141,10 @@
           margin: 0 auto;
           color: #fff;
           cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
 
           &:hover {
             filter: brightness(1.1);

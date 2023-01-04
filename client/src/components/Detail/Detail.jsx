@@ -9,6 +9,8 @@ import Loader from '../Loader/Loader';
 import { TfiAlarmClock } from 'react-icons/tfi'
 import { VscPerson } from 'react-icons/vsc'
 import { RiMentalHealthLine } from 'react-icons/ri'
+import { MdFavoriteBorder } from 'react-icons/md'
+import { RxCross2 } from 'react-icons/rx'
 import { reactLocalStorage } from 'reactjs-localstorage';
 import { useState } from 'react';
 
@@ -84,7 +86,10 @@ const Detail = () => {
                   </div>
                 </div>
                 <p><b>Diet types:</b> {recipe.diets && recipe.diets.join(', ')}.</p>
-                <span className={s.saveRecipe} onClick={() => favoritesHandler(id)}>{isFavorite ? 'Remove from favorites' : 'Add to favorites'}</span>
+                {isFavorite ?
+                  <span className={s.saveRecipe} onClick={() => favoritesHandler(id)}>Remove from favorites <RxCross2 size={'20px'}></RxCross2></span> :
+                  <span className={s.saveRecipe} onClick={() => favoritesHandler(id)}>Add to favorites <MdFavoriteBorder size={'20px'}></MdFavoriteBorder></span>
+                }
               </div>
             </div>
             <p dangerouslySetInnerHTML={{ __html: recipe.summary }} className={s.detailSummary}></p>
