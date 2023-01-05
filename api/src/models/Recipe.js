@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     summary: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(1000),
       allowNull: false,
     },
     image: {
@@ -40,7 +40,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     steps: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(1000),
       allowNull: false,
     },
     readyInMinutes: {
