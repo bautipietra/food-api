@@ -233,7 +233,7 @@ const Create = () => {
   const submitHandler = (e) => {
     e.preventDefault()
     if (!titleError && !summaryError && !stepsError && !imageError && !healthError && !preparationError && !servingsError && !dietsError) {
-      axios.post('http://localhost:3001/recipes', {
+      axios.post('https://tasty-recipes-app-production.up.railway.app/recipes', {
         name: titleValue,
         summary: summaryValue,
         image: imageValue,
