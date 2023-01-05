@@ -219,6 +219,10 @@ const Create = () => {
       error.textContent = 'Image must be a valid link'
       imageError = true
     }
+    else if (e.target.value.length > 250) {
+      error.textContent = 'The link entered is too long'
+      imageError = true
+    }
     else if (!e.target.value.toLowerCase().includes('.jpg') && !e.target.value.toLowerCase().includes('.png') && !e.target.value.toLowerCase().includes('.svg') && !e.target.value.toLowerCase().includes('.webp') && !e.target.value.toLowerCase().includes('jpeg')) {
       error.textContent = 'The link must be an image'
       imageError = true
