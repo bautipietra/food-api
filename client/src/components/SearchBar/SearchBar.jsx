@@ -16,10 +16,19 @@ function SearchBar({ menu }) {
     }
   }
 
+  const iconSearch = () => {
+    const value = document.querySelector('#search').value
+    navigate('/recipes?page=1&search=' + value)
+    document.querySelector('#search').value = ''
+    if (window.innerWidth < 1000) {
+      menu()
+    }
+  }
+
   return (
     <div className={s.searchBar}>
-      <input type="search" autoComplete='false' placeholder='Search a recipe' onKeyDown={(e) => search(e)} />
-      <FaSearch></FaSearch>
+      <input type="search" autoComplete='false' placeholder='Search a recipe' id='search' onKeyDown={(e) => search(e)} />
+      <FaSearch cursor={'pointer'} onClick={() => { iconSearch() }}></FaSearch>
     </div>
   )
 }
