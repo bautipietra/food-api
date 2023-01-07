@@ -263,42 +263,42 @@ const Create = () => {
         <form>
           <div className={s.formWrapper}>
             <label htmlFor="title">Title *</label>
-            <input type="title" id='title' name='title' placeholder='Title' onChange={(e) => titleHandler(e)} />
+            <input type="title" id='title' name='title' placeholder='Title' onChange={(e) => titleHandler(e)} onBlur={(e) => titleHandler(e)} />
             <span className={s.error} id={'titleError'}></span>
           </div>
           <div className={s.formWrapper}>
             <label htmlFor="summary">Summary *</label>
-            <input type="summary" id='summary' name='summary' placeholder='Summary' onChange={(e) => summaryHandler(e)} />
+            <input type="summary" id='summary' name='summary' placeholder='Summary' onChange={(e) => summaryHandler(e)} onBlur={(e) => summaryHandler(e)} />
             <span className={s.error} id={'summaryError'}></span>
           </div>
           <div className={s.formWrapper}>
             <label htmlFor="steps">Steps *</label>
-            <input type="steps" id='steps' name='steps' placeholder='Steps' onChange={(e) => stepsHandler(e)} />
+            <input type="steps" id='steps' name='steps' placeholder='Steps' onChange={(e) => stepsHandler(e)} onBlur={(e) => stepsHandler(e)} />
             <span className={s.error} id={'stepsError'}></span>
           </div>
           <div className={s.formWrapper}>
             <label htmlFor="image">Image URL *</label>
-            <input type="link" id='image' name='image' placeholder='https://example.com/image.jpg' onChange={(e) => imageHandler(e)} />
+            <input type="link" id='image' name='image' placeholder='https://example.com/image.jpg' onChange={(e) => imageHandler(e)} onBlur={(e) => imageHandler(e)} />
             <span className={s.error} id={'imageError'}></span>
           </div>
           <div className={s.formWrapper}>
             <label htmlFor="healthScore">Health score <span>(from 1 to 100)</span> *</label>
-            <input type="number" min={'0'} max={'100'} id='healthScore' name='healthScore' placeholder='Health Score' onChange={(e) => healthHandler(e)} />
+            <input type="number" min={'0'} max={'100'} id='healthScore' name='healthScore' placeholder='Health Score' onChange={(e) => healthHandler(e)} onBlur={(e) => healthHandler(e)} />
             <span className={s.error} id={'healthError'}></span>
           </div>
           <div className={s.formWrapper}>
             <label htmlFor="preparationTime">Preparation time <span>(in minutes)</span> *</label>
-            <input type="number" min={'0'} max={'100'} id='preparationTime' name='preparationTime' placeholder='Preparation time' onChange={(e) => preparationHandler(e)} />
+            <input type="number" min={'0'} max={'100'} id='preparationTime' name='preparationTime' placeholder='Preparation time' onChange={(e) => preparationHandler(e)} onBlur={(e) => preparationHandler(e)} />
             <span className={s.error} id={'preparationError'}></span>
           </div>
           <div className={s.formWrapper}>
             <label htmlFor="servings">Servings <span>(from 1 to 12)</span> *</label>
-            <input type="number" min={'0'} max={'10'} id='servings' name='servings' placeholder='servings' onChange={(e) => servingsHandler(e)} />
+            <input type="number" min={'0'} max={'10'} id='servings' name='servings' placeholder='servings' onChange={(e) => servingsHandler(e)} onBlur={(e) => servingsHandler(e)} />
             <span className={s.error} id={'servingsError'}></span>
           </div>
           <div className={s.formWrapper}>
             <label htmlFor="dietType">Diet Type *</label>
-            <select name="dietType" id="dietType" onChange={(e) => dietsHandler(e)}>
+            <select name="dietType" id="dietType" onChange={(e) => dietsHandler(e)} onBlur={(e) => dietsHandler(e)}>
               <option value="null">Choose an option</option>
               {
                 diets.map(d => <option value={d.name}>{d.name}</option>)
